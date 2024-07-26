@@ -7,7 +7,8 @@ const aboutRoute = require('./about');
 module.exports = () => {
     
     router.get('/', (requete, reponse) => {
-        reponse.render('index', { pageTitle: 'Bienvenue chez Express et Verti'});
+        reponse.render('layouts', { pageTitle: 'Bienvenue chez Express et Verti',
+                        page: 'home'});
     }); 
 
     router.use('/catalogue', catalogRoute());
