@@ -7,7 +7,7 @@ const aboutRoute = require('./about');
 module.exports = () => {
     
     router.get('/', (requete, reponse) => {
-        reponse.render('layouts', { pageTitle: 'Bienvenue chez Express et Verti',
+        reponse.render('layouts', { pageTitle: 'Bienvenue à la boite à musique',
                         page: 'home'});
     }); 
 
