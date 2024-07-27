@@ -1,18 +1,25 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const router = require('./routes');
 const { url } = require('inspector');
 const port = 3000;
 
 const app = express();
 
-app.locals.siteName = "La boite à musique";
-app.locals.socials = [
-    { url: "www.x.com", label: "X", class: "fa-twitter"},
-    { url: "www.instagram.com", label: "Instagram", class: "fa-instagram"},
-    { url: "www.facebook.com", label: "Facebook", class: "fa-facebook"},
-    { url: "www.pinterest.com", label: "Pinterest", class: "fa-pinterest"},
-];
+fs.readFile(path.join(__dirname, "./data/config.json"), 'utf8', 
+    (error, data) => {
+        if(error){
+            console.error(error)
+            app.locals.siteName = "[ nom ]";
+            app.locals.socials = [ { url:"#", class:"", label:"[social]"}];
+            app.locals.routes = [ { url:"/", label: "Accueil"}];
+        }else{
+            app.locals.siteName = JSON.parse(data).name;
+            app.locals.socials = JSON.parse(data).socials;
+            app.locals.routes = JSON.parse(data).routes;
+        }
+    });
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));

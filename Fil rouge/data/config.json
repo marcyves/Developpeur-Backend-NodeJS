@@ -1,0 +1,14 @@
+{
+    "socials": [
+        { "url": "www.x.com", "label": "X", "class": "fa-twitter"},
+        { "url": "www.instagram.com", "label": "Instagram", "class": "fa-instagram"},
+        { "url": "www.facebook.com", "label": "Facebook", "class": "fa-facebook"},
+        { "url": "www.pinterest.com", "label": "Pinterest", "class": "fa-pinterest"}
+    ],
+    "name": "Ma boite musicale",
+    "routes": [
+        { "url":"/", "label": "Home"},
+        { "url":"/catalogue", "label": "Catalogue"},
+        { "url":"/apropos", "label": "Présentation"}
+    ]
+}
