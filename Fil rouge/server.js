@@ -7,6 +7,9 @@ const port = 3000;
 
 const app = express();
 
+const CatalogController = require('./controller/CatalogController');
+const catalogController = new CatalogController("Un beau catalogue de disques");
+
 fs.readFile(path.join(__dirname, "./data/config.json"), 'utf8', 
     (error, data) => {
         if(error){
@@ -26,7 +29,7 @@ app.set('views', path.join(__dirname, './views'));
 
 app.use(express.static(path.join(__dirname, './verti')));
 
-app.use('/', router());
+app.use('/', router({ catalogController }));
 
 app.listen(port, () => {
     console.log(`Application lancée sur http://localhost:${port}`)
