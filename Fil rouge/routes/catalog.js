@@ -5,11 +5,11 @@ module.exports = (params) => {
 
     const { catalogController } = params;
     
-    router.all('/', (requete, reponse) => {
-        const message = catalogController.getMessage();
+    router.all('/', async (requete, reponse) => {
+        const discs = await catalogController.loadCatalog();
 
         reponse.render('layouts', { pageTitle: 'Notre catalogue',
-                                    message: message,
+                                    discs,
                                     page: 'catalogue'});
     }); 
 

@@ -1,12 +1,19 @@
+const fs = require('fs');
+const util = require('util');
+
+const readFile = util.promisify(fs.readFile);
+
 class CatalogController {
 
-    constructor(m){
-        this.message = m;
+    constructor(){
+        this.dataFile = './data/catalog.json';
     }
 
-    getMessage(){
-        return this.message;
+    async loadCatalog(){
+        const data = await readFile(this.dataFile, 'utf-8');
+        return JSON.parse(data).produits;
     }
+
 }
 
 module.exports = CatalogController;
