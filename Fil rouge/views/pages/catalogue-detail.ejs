@@ -1,0 +1,20 @@
+<div id="features-wrapper">
+    <div class="container">
+        <h1><%= pageTitle %></h1>    
+        <div class="row">
+            <div class="col-4 col-12-medium">
+                <!-- Box -->
+                <section class="box feature">
+                    <a href="/catalog/<%= disc.id %>" class="image featured"><img src="/images/<%= disc.image%>" alt="<%= disc.title %>" /></a>
+                    <div class="inner">
+                        <header>
+                            <h2><%= disc.title %></h2>
+                            <p><%= disc.artist %></p>
+                        </header>
+                        <p><%= disc.description %></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

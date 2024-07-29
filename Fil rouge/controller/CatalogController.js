@@ -14,6 +14,17 @@ class CatalogController {
         return JSON.parse(data).produits;
     }
 
+    async getDisc(id){
+        const data = await this.loadCatalog();
+
+        const disc = data.find(disc => {
+            return disc.id == id;
+        });
+
+        if(!disc) return null;
+        return disc;        
+    }
+
 }
 
 module.exports = CatalogController;
