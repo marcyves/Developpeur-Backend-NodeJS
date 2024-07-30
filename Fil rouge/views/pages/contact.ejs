@@ -3,8 +3,17 @@
         <div class="row">
             <div class="col-12">
                 <h2><%= pageTitle %></h2>
-                <p>Email: <%= contact.email %></p>
-                <p>Votre message: <%= contact.message %></p>
+                <% if(messages) {%>
+                    <h3>Votre demande a échoué</h3>
+                    <ul>
+                    <% messages.forEach( erreur => {%>
+                        <li><%= erreur.msg %></li>
+                    <%});%>
+                    </ul>
+                <%}else {%>
+                    <p>Email: <%= contact.email %></p>
+                    <p>Votre message: <%= contact.message %></p>    
+                <%}%>
             </div>
         </div>
     </div>
