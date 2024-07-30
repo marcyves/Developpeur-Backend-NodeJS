@@ -1,7 +1,10 @@
 <nav id="nav">
     <ul>
-        <% routes.forEach( (route) => { %>
-            <li><a href="<%=route.url%>"><%=route.label%></a></li>
+        <%
+        routes.forEach( (route) => { %>
+            <li<% if (current_route == route.url){%> class="current"<%}%>>
+                <a href="<%=route.url%>"><%=route.label%></a>
+            </li>
         <% }); %>
     </ul>
 </nav>

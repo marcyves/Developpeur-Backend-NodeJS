@@ -31,6 +31,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 
+app.use ((req, res, next) => {
+    app.locals.current_route = req.originalUrl;
+//    console.log(current_route);
+    next();
+});
+
 app.use(express.static(path.join(__dirname, './verti')));
 
 app.use('/', router({ catalogController, contactController }));
