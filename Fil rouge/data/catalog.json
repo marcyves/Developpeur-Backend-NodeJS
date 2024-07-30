@@ -1,7 +1,7 @@
 {
     "produits": [
-        { "id": 1, "title": "Lettre à Elise", "artist": "Ludwig Van Beethoven", "image": "pic01.jpg", "description": "Un espace musical unique."},
-        { "id": 2, "title": "La flute enchantée", "artist": "Wolfgang Amadeus Mozart", "image": "pic02.jpg", "description": "Ne ratez pas la reine de la Reine."},
-        { "id": 3, "title": "Le Boléro", "artist": "Maurice Ravel", "image": "pic03.jpg", "description": "Vous l'aimerez avant de l'écouter."}
+        { "id": 1, "title": "Lettre à Elise", "artist": "Ludwig Van Beethoven", "image": "elise.jpeg", "description": "Un espace musical unique."},
+        { "id": 2, "title": "La flute enchantée", "artist": "Wolfgang Amadeus Mozart", "image": "flute.jpeg", "description": "Ne ratez pas la reine de la Reine."},
+        { "id": 3, "title": "Le Boléro", "artist": "Maurice Ravel", "image": "bolero.jpeg", "description": "Vous l'aimerez avant de l'écouter."}
     ]
 }
