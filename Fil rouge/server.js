@@ -2,13 +2,16 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const router = require('./routes');
-const { url } = require('inspector');
+const bodyParser = require('body-parser');
 const port = 3000;
 
 const app = express();
 
 const CatalogController = require('./controller/CatalogController');
 const catalogController = new CatalogController("Un beau catalogue de disques");
+
+const ContactController = require('./controller/ContactController');
+const contactController = new ContactController();
 
 fs.readFile(path.join(__dirname, "./data/config.json"), 'utf8', 
     (error, data) => {
@@ -23,13 +26,14 @@ fs.readFile(path.join(__dirname, "./data/config.json"), 'utf8',
             app.locals.routes = JSON.parse(data).routes;
         }
     });
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 
 app.use(express.static(path.join(__dirname, './verti')));
 
-app.use('/', router({ catalogController }));
+app.use('/', router({ catalogController, contactController }));
 
 app.listen(port, () => {
     console.log(`Application lancée sur http://localhost:${port}`)
